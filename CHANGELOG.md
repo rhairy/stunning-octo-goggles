@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/rhairy/stunning-octo-goggles/compare/v1.0.1...v1.0.2) (2026-10-10)
+
+### Bug Fixes
+
+* update ci ([6ac287a](https://github.com/rhairy/stunning-octo-goggles/commit/6ac287a01a9b561fe568c9fd4e7217397d92a7da))
+
 ## [1.0.1](https://github.com/rhairy/stunning-octo-goggles/compare/v1.0.0...v1.0.1) (2026-10-10)
 
 ### Bug Fixes
