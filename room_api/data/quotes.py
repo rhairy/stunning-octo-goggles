@@ -234,7 +234,7 @@ QUOTES: List[Dict[str, Any]] = [
         "spoken_to": "Denny",
         "scene": "Intro",
         "prompt": "It's nice to see you Denny.",
-        "context": "N/A",
+        "context": "Johnny wants some alone time with Lisa.",
         "follow_up": "None",
     }
 ]
