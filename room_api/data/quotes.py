@@ -226,6 +226,17 @@ QUOTES: List[Dict[str, Any]] = [
         "context": "Alternative phrasing for the classic pocket comment.",
         "follow_up": "What's the matter with you?",
     },
+    {
+        "slug": "im-going-to-take-a-nap",
+        "endpoint": "/im-going-to-take-a-nap",
+        "quote": "It's nice to see you Denny, I'm going to take a nap.",
+        "character": "Tommy",
+        "spoken_to": "Denny",
+        "scene": "Intro",
+        "prompt": "It's nice to see you Denny.",
+        "context": "N/A",
+        "follow_up": "None",
+    }
 ]
 
 # Slug to quote dictionary for fast lookup
