@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/rhairy/stunning-octo-goggles/compare/v1.0.3...v1.0.4) (2026-10-10)
+
+### Bug Fixes
+
+* syntax ([5682345](https://github.com/rhairy/stunning-octo-goggles/commit/568234565ef60f57cb07a1df8959dd445e741f75))
+
 ## [1.0.3](https://github.com/rhairy/stunning-octo-goggles/compare/v1.0.2...v1.0.3) (2026-10-10)
 
 ### Bug Fixes
