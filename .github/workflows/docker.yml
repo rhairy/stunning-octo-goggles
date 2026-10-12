@@ -49,3 +49,42 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  deploy:
+    name: Bump chart image tag
+    needs: docker
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: chart-bump
+      cancel-in-progress: false
+
+    steps:
+      - name: Check out default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set image tag and appVersion
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          VERSION="${TAG_NAME#v}"
+          CHART=charts/stunning-octo-goggles
+          sed -i -E "s|^(  tag: ).*|\1${VERSION}|" "${CHART}/values.yaml"
+          sed -i -E "s|^(appVersion: ).*|\1\"${VERSION}\"|" "${CHART}/Chart.yaml"
+          grep -qx "  tag: ${VERSION}" "${CHART}/values.yaml"
+          grep -qx "appVersion: \"${VERSION}\"" "${CHART}/Chart.yaml"
+          echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet; then
+            echo "Chart already at ${VERSION}, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(deploy): ${VERSION} [skip ci]"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"

@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/your-org/stunning-octo-goggles
-  tag: latest
+  repository: ghcr.io/rhairy/stunning-octo-goggles
+  tag: 1.0.6
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
